@@ -1,0 +1,2 @@
+ID,BEASTS ID,SKILL NAME,SKILL LV,SKILL TYPE,SKILL DESCRIPTION,SKILL EFFECT
+1,1,Shy  Impact,1,Beast Skill,"When attacked, gain 10 BP. When BP reaches 60, all BP is consumed and this skill activates. Deals 100% Phy. DMG to the enemy with the lowest HP, with a 6% chance of inflicting [Stun] for 1 turn(s). Cooldown: 5 turn(s). BP does not accumulate during cooldown. Cooling 5 turns.","Stun, Inflicts [Immobilize]"

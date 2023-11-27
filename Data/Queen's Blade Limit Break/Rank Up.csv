@@ -1,0 +1,8 @@
+ID,BASE STAR,UPGRADE STAR TO,MATERIAL 1,MATERIAL 2,MATERIAL 3
+1,4,5,,,
+2,5,6,1 *5 equal,4 *5 same type,
+3,6,7,4 *5 same type,,
+4,7,8,4 *5 same type,1 *6 same type,
+5,8,9,1 *5 equal,2 *5 same type,1 *6 same type
+6,9,10,2 *5 equal,1 *6 same type,1 *9 same type
+7,10,11,1 *6 equal,1 *9 anything,
