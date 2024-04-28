@@ -1,0 +1,853 @@
+
+// --------------------------------
+//  Fonts
+//		https://fonts.google.com/specimen/Noto+Sans
+
+@font-face
+	font-family: 'Noto Sans'
+	src: url(/static/noto_latin.woff2) format('woff2')
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+@font-face
+	font-family: 'Noto Sans'
+	src: url(/static/noto_latin-ext.woff2) format('woff2')
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+@font-face
+	font-family: 'Noto Sans'
+	src: url(/static/noto_cyrillic.woff2) format('woff2')
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+
+@font-face
+	font-family: 'Noto Sans'
+	src: url(/static/noto_cyrillic-ext.woff2) format('woff2')
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
+
+@font-face
+	font-family: 'Noto Sans'
+	src: url(/static/noto_greek.woff2) format('woff2')
+	unicode-range: U+0370-03FF
+
+@font-face
+	font-family: 'Noto Sans'
+	src: url(/static/noto_greek-ext.woff2) format('woff2')
+	unicode-range: U+1F00-1FFF
+
+
+// --------------------------------
+//  Main HTML tags
+
+HTML
+	height: 100%
+	scroll-behavior: smooth
+
+BODY
+	height: 100%
+	width: 100%
+	margin: 0
+	padding: 0
+	background-color: white
+	font-family: 'Noto Sans', sans-serif
+
+A
+	text-decoration: none
+	color: black
+
+BLOCKQUOTE
+	margin-left: 0
+	margin-right: 0
+	padding: 10px
+	background-color: #F2F2F2
+	border-left: 4px solid gray
+	border-radius: 10px
+
+	P
+		margin-right: 0
+		&:first-child
+			margin-top: 0
+		&:last-child
+			margin-bottom: 0
+
+	&.spoiler
+		cursor: help
+		border-left-style: dotted
+		border-radius: 0
+		*
+			visibility: hidden
+		&:hover *
+			visibility: visible
+
+CODE
+	display: inline-block
+	white-space: pre-wrap
+	padding: 3px
+	max-width: 100%
+	border: 1px solid gray
+	font-family: monospace
+
+	.pwic_copy_code
+		float: right
+		margin: 5px
+		background-color: white
+		border: 1px solid black
+		border-radius: 15px
+		line-height: 30px
+		width: 30px
+		text-align: center
+		cursor: pointer
+	.pwic_copy_code:hover
+		background-color: lightgray
+
+	.pwic_copy_code_tiny
+		float: right
+		margin-left: 5px
+		background-color: lightgray
+		text-align: center
+		cursor: pointer
+
+
+// --------------------------------
+//  Template - Header
+
+HEADER
+	padding: 10px 50px 10px 50px
+	background-color: #F0F0F0
+	border-bottom: 1px solid black
+	box-shadow: 0 0 5px gray
+	font-weight: bold
+
+	.pwic_ph1
+		font-size: 24pt
+
+	.pwic_ph2
+		font-size: 18pt
+
+	.pwic_tagbox
+		margin-top: 10px
+		overflow: hidden
+
+		A,DIV
+			float: left
+			margin: 0 10px 5px 0
+			padding: 5px 10px
+			line-height: 20px
+			border: 1px solid black
+
+		A:hover
+			background-color: white
+
+		DIV
+			background-color: white
+
+			INPUT
+				width: 50px
+				border: none
+			INPUT:focus
+				width: 80vw
+				transition: width 0.5s
+			INPUT:not(:focus)
+				transition: width 0.5s
+
+
+// --------------------------------
+//  Template - Content
+
+ARTICLE
+	display: block
+	margin: auto
+	width: 90%
+	padding: 20px 20px 0 20px
+
+	// -------------------------------- Standard tags
+
+	H1
+		background-color: #F4F4F4
+		border-bottom: 1px solid black
+		border-radius: 10px
+		margin: 30px 10px 20px 0
+		padding: 3px 10px
+		font-size: 24pt
+		font-weight: bold
+
+	H2
+		margin: 20px 10px 20px 1cm
+		font-size: 22pt
+		font-weight: bold
+		border-bottom: 1px solid lightgray
+
+	H3
+		margin: 20px 10px 20px 2cm
+		font-size: 20pt
+
+	H4
+		margin: 20px 10px 20px 3cm
+		font-size: 18pt
+
+	H5
+		margin: 20px 10px 20px 4cm
+		font-size: 16pt
+
+	H6
+		margin: 20px 10px 20px 5cm
+		font-size: 14pt
+
+	TABLE
+		width: 95%
+		margin: auto
+		border-spacing: 0
+		border-collapse: collapse
+		border: 1px solid gray
+		TR:nth-child(n+1):not(:last-child)
+			border-bottom: 1px solid lightgray
+		TR:hover
+			background-color: lightblue !important
+		CAPTION
+			caption-side: bottom
+			display: inline-block
+			padding: 3px 10px
+			border-top: 1px solid gray
+			border-right: 1px solid gray
+			background-color: lightyellow
+			font-style: italic
+			font-size: 8pt
+			cursor: pointer
+
+	TABLE.pwic_zebra
+		TR:nth-child(even)
+			background-color: #F0F0F0
+
+	TH
+		text-align: left
+		background-color: lightgray
+		border-bottom: 1px solid gray
+
+	TH,TD
+		padding: 2px 5px
+
+	INPUT[type=button], INPUT[type=submit]
+		padding: 5px 15px 5px 15px
+		cursor: pointer
+
+	A
+		color: red
+		text-decoration: underline
+
+	IMG
+		vertical-align: middle
+		max-width: 100%
+		// max-height: 90vh
+		border: 1px solid lightgray
+		margin: 5px
+
+
+	// -------------------------------- Action bar
+
+	.pwic_action_bar
+		text-align: right
+		margin-bottom: 25px
+
+		A
+			display: inline-block
+			margin: 0 0 5px 5px
+			padding: 5px 10px
+			border: 1px solid lightgray
+			border-radius: 10px
+			background-color: #ECF6F9
+			text-decoration: none !important
+
+			&:hover
+				border: 1px solid black
+				border-radius: 0
+
+
+	// -------------------------------- Tag box
+
+	.pwic_tagbox
+		margin: 10px 0 10px 0
+		overflow: hidden
+
+		A
+			float: left
+			margin: 0 5px 5px 0
+			padding: 3px 5px
+			line-height: 20px
+			border: 1px solid gray
+			border-radius: 10px
+			font-family: monospace
+			color: black
+			text-decoration: none
+
+			&:hover
+				background-color: lightgray
+				border: 1px solid black
+				border-radius: 0
+			&.pwic_selected
+				background-color: lightgray
+
+
+	// -------------------------------- File gallery
+
+	.pwic_file_gallery
+		display: block
+		overflow: hidden
+		padding: 10px
+
+		A
+			float: left
+			padding: 5px 10px
+			margin: 5px
+			// width: 200px
+			border: 1px solid lightgray
+			text-align: center
+			color: black
+			text-decoration: none
+
+			SPAN
+				color: red
+				text-decoration: underline
+			&:hover
+				border: 1px solid black
+
+
+	// -------------------------------- Progress
+
+	#pwic_progress
+		position: fixed
+		top: 0
+		left: 0
+		height: 0
+		width: 5px
+		background-color: gray
+
+
+	// -------------------------------- Document browser
+
+	#pwic_browser_access
+		position: fixed
+		bottom: 60px
+		right: 75px
+		z-index: 999
+
+		width: 50px
+		height: 50px
+		line-height: 50px
+		border-radius: 25px
+		border: 2px solid green
+		background-color: rgb(149, 236, 168)
+		box-shadow: 0 0 0 10px white
+
+		font-size: 22pt
+		text-align: center
+	#pwic_browser_access:hover
+		cursor: pointer
+		background-color: green
+		color: white
+		box-shadow: 0 0 10px 5px lime
+
+	#pwic_browser
+		position: fixed
+		left: 10px
+		right: 10px
+		top: 10px
+		bottom: 10px
+		z-index: 998
+		overflow-x: hidden
+		overflow-y: scroll
+
+		padding: 10px
+		border: 1px solid black
+		box-shadow: 0 0 0 10px white
+		background-color: #F7F7F7
+
+		A
+			display: block
+			padding: 5px
+			margin: 5px
+			white-space: nowrap
+			overflow: hidden
+			text-overflow: ellipsis
+			color: black				// Invalidates the general A
+			text-decoration: none		// Invalidates the general A
+
+			&:hover
+				background-color: lightyellow
+				font-weight: bold
+
+			&.pwic_browser_item_h1
+				padding-left: 10px
+				border-bottom: 1px solid gray
+				font-size: 16pt
+				font-weight: bold
+			&.pwic_browser_item_h2
+				padding-left: 20px
+				font-size: 14pt
+			&.pwic_browser_item_h3
+				padding-left: 30px
+			&.pwic_browser_item_h4
+				padding-left: 40px
+			&.pwic_browser_item_h5
+				padding-left: 50px
+			&.pwic_browser_item_h6
+				padding-left: 60px
+
+
+
+// --------------------------------
+//  Template - Footer
+
+FOOTER
+	display: block
+	padding: 25px 10px 10px 10px
+	margin-bottom: 10px
+
+	> DIV
+		width: 90%
+		margin: auto
+
+		padding: 5px 10px
+		border: 2px solid black
+		border-radius: 10px
+		background-color: #F8F8F8
+		font-size: smaller
+		text-align: center
+
+		A
+			text-decoration: underline
+
+
+// --------------------------------
+//  Popup widget
+
+.pwic_blurcontainer
+	position: absolute
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	background-color: rgb(255, 255, 255, 75%)
+	backdrop-filter: blur(3px)					// Only Chrome
+
+.pwic_popup
+	position: absolute
+	left: 15%
+	right: 15%
+	top: 30%
+	bottom: auto
+	background-color: #FFFFF0
+	padding: 15px
+	box-shadow: 0 0 15px gray
+	border: 1px solid black
+	border-radius: 15px
+
+	P
+		text-align: center
+
+
+// --------------------------------
+//  Messages types
+
+.pwic_error, .pwic_information, .pwic_warning
+	margin-bottom: 20px
+	padding: 5px
+	border-radius: 10px
+
+.pwic_error
+	background-color: #FFE0E0
+	border: 1px solid red
+
+.pwic_information
+	background-color: #E0FFE0
+	border: 1px solid green
+
+.pwic_warning
+	background-color: lightyellow
+	border: 1px solid orange
+
+
+// --------------------------------
+//  Progress bar
+
+SPAN.pwic_progressbar
+	display: inline-block
+	width: 50%
+	height: 12px
+	margin-left: 10px
+	margin-right: 10px
+	padding: 0
+	border: 1px solid black
+	box-shadow: inset -1px -1px gray
+	text-align: left
+
+	> SPAN
+		display: inline-block
+		height: 100%
+		background-color: teal
+
+
+// --------------------------------
+//  Individual reusable styles
+
+.pwic_bold
+	font-weight: bold
+
+.pwic_break
+	word-break: break-all
+
+.pwic_center
+	text-align: center
+
+.pwic_cursor
+	cursor: pointer
+
+.pwic_disabled_bg
+	background-color: lightgray
+
+.pwic_fill
+	width: 100%
+
+.pwic_hidden
+	display: none
+
+.pwic_italic
+	font-style: oblique
+
+.pwic_js
+	display: none !important
+
+.pwic_monospace
+	font-family: monospace
+
+.pwic_noborder
+	border: none
+
+.pwic_nowrap
+	white-space: pre
+
+.pwic_red
+	color: red
+
+.pwic_right
+	text-align: right
+
+.pwic_spacer
+	margin-right: 15px !important
+
+
+// --------------------------------
+//  Individual elements
+
+#page_lastmod
+	margin-top: 25px
+	text-align: right
+	font-size: smaller
+
+#page_legal_notice
+	padding: 10px
+	border-top: 1px dashed gray
+	font-size: smaller
+
+#page_topofpage
+	text-align: center
+	font-weight: bold
+
+#edit_toolbar
+	DIV
+		display: inline-block
+		margin-right: 10px
+
+	INPUT[type=button]
+		padding: 5px 10px
+		margin-top: 5px
+		height: 32px
+		vertical-align: top
+
+#edit_emojis
+	width: 100%
+	margin-top: 5px
+	padding: 3px
+	border: 1px dashed gray
+
+	SPAN
+		display: inline-block
+		width: 25px
+		text-align: center
+		cursor: pointer
+
+#edit_markdown
+	width: 100%
+	height: 75vh
+	margin-top: 5px
+
+#create_tags, #edit_tags
+	font-family: monospace
+
+#edit_files_drop
+	border: 2px dashed lightgray
+	margin-top: 10px
+	margin-bottom: 20px
+	padding: 10px
+	line-height: 50px
+	font-weight: bold
+	text-align: center
+	background-color: #F7F7F7
+
+#edit_files_drop.pwic_dragover
+	border: 2px solid gray
+	background-color: lightyellow
+
+#edit_files_list INPUT[type="button"]
+	padding: 5px
+
+#graph_viz
+	width: 100%
+	height: 80vh
+	border: 1px solid black
+
+	svg
+		width: 100%
+		height: 100%
+
+#roles_table INPUT[type="button"]
+	padding: 5px
+
+
+// --------------------------------
+//  Mobile corrections
+
+@media screen and (max-width: 640px)
+	.pwic_desktop
+		display: none !important
+
+	HEADER
+		padding: 5px 10px
+
+		.pwic_ph1
+			white-space: nowrap
+			overflow: hidden
+			text-overflow: ellipsis
+			font-size: 18pt
+
+		.pwic_ph2
+			white-space: nowrap
+			overflow: hidden
+			text-overflow: ellipsis
+			font-size: 12pt
+
+		.pwic_tagbox
+			A,DIV
+				margin: 0 5px 5px 0
+				padding: 3px 10px
+				font-size: smaller
+
+	ARTICLE
+		H1
+			font-size: 18pt
+			margin-left: 0
+		H2
+			font-size: 18pt
+			margin-left: 0.25cm
+		H3
+			font-size: 16pt
+			margin-left: 0.5cm
+		H4
+			font-size: 16pt
+			margin-left: 0.75cm
+		H5
+			font-size: 14pt
+			margin-left: 1cm
+		H6
+			font-size: 14pt
+			margin-left: 1.25cm
+
+		TABLE
+			width: 100%
+			font-size: smaller
+
+		#pwic_browser_access
+			right: 25px
+
+		.pwic_action_bar
+			font-size: smaller
+
+			A
+				padding: 3px 5px 3px 5px !important
+
+	#edit_toolbar
+		DIV
+			display: inline
+		INPUT[type=button]
+			padding: 0px 5px
+
+
+// --------------------------------
+//  Code differences
+
+TABLE.diff
+	width: 100%
+	font-family: monospace
+	TD
+		padding: 0 5px
+		&:nth-child(3)
+			width: 45%
+		&:nth-child(6)
+			width: 45%
+
+.diff_header
+	background-color: #F0F0F0
+	text-align: right
+
+.diff_add
+	padding: 1px 5px
+	display: inline-block
+	background-color: #E0FFE0
+	border: 1px solid green
+
+.diff_chg
+	padding: 1px 5px
+	display: inline-block
+	background-color: #FFFFE0
+	border: 1px solid yellow
+
+.diff_sub
+	padding: 1px 5px
+	display: inline-block
+	background-color: #FFE0E0
+	border: 1px solid red
+
+
+// --------------------------------
+//  Syntax highlight
+
+ARTICLE
+	CODE
+		background-color: #FFFFFF
+		.hll
+			background-color: #FFFFCC
+		.err
+			color: #FF0000
+			border: 1px solid #FF0000
+		.k
+			color: #800080
+			font-weight: bold
+		.kc
+			color: #800080
+			font-weight: bold
+		.kd
+			color: #800080
+			font-weight: bold
+		.kn
+			color: #800080
+			font-weight: bold
+		.kp
+			color: #800080
+		.kr
+			color: #800080
+			font-weight: bold
+		.kt
+			color: #B00040
+		.na
+			color: #008080
+		.nb
+			font-weight: bold
+		.nc
+			font-weight: bold
+		.ne
+			font-weight: bold
+		.nl
+			color: #BC7A00
+		.nt
+			color: #2080C0
+			font-weight: bold
+		.nv
+			color: #2F4F4F
+		.l
+			color: #0000FF
+		.ld
+			color: #0000FF
+		.s
+			color: #FF0000
+		.sa
+			color: #FF0000
+		.sb
+			color: #FF0000
+		.sc
+			color: #FF0000
+		.dl
+			color: #FF0000
+		.sd
+			color: #FF8000
+		.s2
+			color: #FF0000
+		.se
+			color: #FF8000
+			font-weight: bold
+		.sh
+			color: #FF0000
+		.si
+			color: #FF0000
+		.sx
+			color: #FF0000
+		.sr
+			color: #800000
+		.s1
+			color: #FF0000
+		.ss
+			color: #FF0000
+		.m
+			color: #0000FF
+		.mb
+			color: #0000FF
+		.mf
+			color: #0000FF
+		.mh
+			color: #0000FF
+		.mi
+			color: #0000FF
+		.il
+			color: #0000FF
+		.mo
+			color: #0000FF
+		.ow
+			color: #800080
+			font-weight: bold
+		.c
+			color: #008000
+			font-style: oblique
+		.ch
+			color: #808080
+			font-style: oblique
+		.cm
+			color: #008000
+			font-style: oblique
+		.cp
+			color: #BC7A00
+			font-weight: bold
+		.cpf
+			color: #408080
+		.c1
+			color: #008000
+			font-style: oblique
+		.cs
+			color: #008000
+			font-style: oblique
+		.gd
+			color: #FF0000
+		.ge
+			font-style: oblique
+		.gr
+			color: #FF0000
+			border: 1px solid #FF0000
+		.gh
+			color: #4040FF
+			font-weight: bold
+		.gi
+			color: #008000
+		.gp
+			color: #4040FF
+			font-weight: bold
+		.gs
+			font-weight: bold
+		.gu
+			background-color: #D3D3D3
+			font-weight: bold
+			font-style: oblique

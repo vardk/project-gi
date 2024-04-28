@@ -4,8 +4,18 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+aiohttp = ">=3.8"
+aiohttp-cors = "*"
+aiohttp-session = ">=2.10"
+imagesize = "*"
+jinja2 = "*"
+prettytable = ">=1.0"
+pygments = "*"
+pyotp = "*"
+cryptography = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.8"
+python_full_version = "3.8.10"
